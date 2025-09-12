@@ -1,0 +1,18 @@
+package miden:player-account@0.1.0;
+
+use miden:base/core-types@1.0.0;
+
+interface player-account {
+    use core-types.{felt, asset};
+
+    add: func(a: felt, b: felt) -> felt;
+
+}
+
+world player-account-world {
+    include miden:core-intrinsics/intrinsics@1.0.0;
+    include miden:core-stdlib/stdlib@1.0.0;
+    include miden:core-base/base@1.0.0;
+
+    export player-account;
+}

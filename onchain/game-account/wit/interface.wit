@@ -1,0 +1,19 @@
+package miden:game-account@0.1.0;
+
+use miden:base/core-types@1.0.0;
+
+interface game-account {
+    use core-types.{felt, word};
+
+    // TODO: id should probably be a string
+    register-player: func(id: felt, commitment: word);
+
+}
+
+world game-account-world {
+    include miden:core-intrinsics/intrinsics@1.0.0;
+    include miden:core-stdlib/stdlib@1.0.0;
+    include miden:core-base/base@1.0.0;
+
+    export game-account;
+}
