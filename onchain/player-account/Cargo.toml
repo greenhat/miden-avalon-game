@@ -14,8 +14,6 @@ crate-type = ["cdylib"]
 
 miden = { git = "https://github.com/0xMiden/compiler" }
 
-wit-bindgen-rt = "0.28"
-
 [package.metadata.component]
 package = "miden:player-account"
 
@@ -25,7 +23,3 @@ supported-types = ["RegularAccountUpdatableCode"]
 
 [package.metadata.component.target.dependencies]
 "miden:base" = { path = "wit-deps/miden.wit" }
-"miden:core-intrinsics" = { path = "wit-deps/miden-core-intrinsics.wit" }
-"miden:core-stdlib" = { path = "wit-deps/miden-core-stdlib.wit" }
-"miden:core-base" = { path = "wit-deps/miden-core-base.wit" }
-

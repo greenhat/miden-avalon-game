@@ -10,9 +10,5 @@ interface player-account {
 }
 
 world player-account-world {
-    include miden:core-intrinsics/intrinsics@1.0.0;
-    include miden:core-stdlib/stdlib@1.0.0;
-    include miden:core-base/base@1.0.0;
-
     export player-account;
 }

@@ -11,9 +11,7 @@ fn panic(_info: &core::panic::PanicInfo) -> ! {
     loop {}
 }
 
-mod bindings;
-
-use bindings::exports::miden::player_account::player_account::Guest;
+use crate::bindings::exports::miden::player_account::player_account::Guest;
 use miden::{component, Felt, Value};
 
 #[component]
@@ -25,8 +23,6 @@ struct PlayerAccount {
     )]
     owner_public_key: Value,
 }
-
-bindings::export!(PlayerAccount with_types_in bindings);
 
 impl Guest for PlayerAccount {
     fn add(a: Felt, b: Felt) -> Felt {

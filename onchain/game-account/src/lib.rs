@@ -11,18 +11,15 @@ fn panic(_info: &core::panic::PanicInfo) -> ! {
     loop {}
 }
 
-mod bindings;
-
-use bindings::exports::miden::game_account::game_account::Guest;
 use miden::{component, Felt, StorageMap, StorageMapAccess, Word};
+
+use crate::bindings::exports::miden::game_account::game_account::Guest;
 
 #[component]
 struct GameAccount {
-    #[storage(slot(0), description = "test map")]
+    #[storage(slot(0), description = "Player commitments by their IDs")]
     player_commitments: StorageMap,
 }
-
-bindings::export!(GameAccount with_types_in bindings);
 
 impl Guest for GameAccount {
     fn register_player(id: Felt, commitment: Word) {
