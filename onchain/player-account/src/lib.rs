@@ -18,10 +18,17 @@ use miden::{component, Felt, Value};
 struct PlayerAccount {
     #[storage(
         slot(0),
-        description = "test value",
+        description = "owner's public key",
         type = "auth::rpo_falcon512::pub_key"
     )]
     owner_public_key: Value,
+
+    #[storage(
+        slot(1),
+        description = "player secret",
+        type = "auth::rpo_falcon512::pub_key"
+    )]
+    player_secret: Value,
 }
 
 impl Guest for PlayerAccount {

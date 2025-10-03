@@ -6,7 +6,11 @@ interface game-account {
     use core-types.{felt, word};
 
     // TODO: id should probably be a string
-    register-player: func(id: felt, commitment: word);
+    register-player: func(commit: word);
+
+    propose-team: func(players: list<word>);
+
+    vote-team-proposal: func(commit: word, vote: felt);
 
 }
 
